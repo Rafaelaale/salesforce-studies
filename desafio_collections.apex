@@ -25,3 +25,14 @@ System.debug('=== RESULTADO DO DESAFIO ===');
 System.debug('Nomes brutos recebidos (List): ' + nomesBrutos.size());
 System.debug('Contas únicas criadas (Map): ' + mapaContas.size());
 System.debug('Duplicatas removidas com sucesso!');
+
+// 5. DML: Salvar as contas de verdade no banco de dados!
+insert mapaContas.values();
+System.debug('Contas inseridas com sucesso no banco de dados!');
+
+// 6. SOQL: Buscar as contas que acabamos de criar para provar que funcionou
+List<Account> contasSalvas = [SELECT Id, Name FROM Account WHERE Name IN :nomesUnicos];
+System.debug('Contas encontradas no banco: ' + contasSalvas.size());
+for(Account acc : contasSalvas) {
+    System.debug('ID: ' + acc.Id + ' | Nome: ' + acc.Name);
+}
