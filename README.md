@@ -9,7 +9,7 @@ Repositório dedicado aos meus estudos práticos e projetos de desenvolvimento n
 - **Boas Práticas:** Testes Unitários, Tratamento de Exceções (Try/Catch), Governor Limits
 
 ## 📂 Estrutura do Repositório
-- pex-exercises/: Exercícios práticos de lógica e manipulação de dados em Apex.
+-  pex-exercises/: Exercícios práticos de lógica e manipulação de dados em Apex.
 - lwc-projects/: Componentes Lightning Web Components desenvolvidos do zero.
 
 ## 🎯 Objetivo
@@ -17,3 +17,17 @@ Consolidar conhecimentos para atuar como Desenvolvedor(a) Salesforce, entregando
 
 ---
 *Desenvolvido por Rafael Alexandre Oliveira Araujo*
+## 📘 Estudos de Desenvolvimento Salesforce
+
+### ✅ Conteúdo aprendido:
+- Tipos de dados
+- List, Set e Map
+- Estruturas de repetição (for, while)
+
+### 💻 Tecnologias:
+- Apex
+- Salesforce
+- Git / GitHub
+
+---
+
