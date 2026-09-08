@@ -1,0 +1,1 @@
+Ola minhaClasse = new Ola(); minhaClasse.saudacao();
