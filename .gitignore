@@ -1,6 +1,4 @@
+﻿.sfdx/
 .sf/
-.sfdx/
-**/.sf/
-**/.sfdx/node_modules/
-node_modules/
 .vscode/
+node_modules/
