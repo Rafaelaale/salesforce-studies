@@ -1,5 +1,3 @@
-
-
 public with sharing class bemsimples {
 
     public static String ola(String nomeSimples) {
@@ -15,6 +13,3 @@ public with sharing class bemsimples {
         return saudacaoNomeSimples;
     }
 }
-
-
-System.debug(bemsimples.ola('Rafael'));

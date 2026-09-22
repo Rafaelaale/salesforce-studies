@@ -1,0 +1,26 @@
+<apex:page controller="CalculatorPageController" title="Calculator">
+    <apex:form>
+        <apex:pageBlock title="Calculator">
+            <apex:pageMessages />
+            <apex:pageBlockSection columns="1">
+                <apex:inputText value="{!intA}" label="First integer" />
+                <apex:inputText value="{!intB}" label="Second integer" />
+                <apex:selectList value="{!operation}" size="1" label="Operation">
+                    <apex:selectOption itemValue="Add" itemLabel="Add" />
+                    <apex:selectOption itemValue="Subtract" itemLabel="Subtract" />
+                    <apex:selectOption itemValue="Multiply" itemLabel="Multiply" />
+                    <apex:selectOption itemValue="Divide" itemLabel="Divide" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Calculate" action="{!calculate}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection rendered="{!NOT(ISNULL(result))}" columns="1">
+                <apex:outputText value="Result: {!result}" />
+            </apex:pageBlockSection>
+            <apex:outputPanel rendered="{!NOT(ISNULL(errorMessage))}">
+                <apex:outputText value="Error: {!errorMessage}" style="color: red;" />
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

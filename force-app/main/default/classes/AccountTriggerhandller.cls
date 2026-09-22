@@ -29,5 +29,15 @@ public class AccountTriggerhandller {
     }
 
     public static void onebeforeUpdate(
-        List<Account> 
-        
+        List<Account> newAccountList,
+        Map<Id, Account> oldAccountMap
+    ) {
+        for (Account newAccount : newAccountList) {
+            if (String.isBlank(newAccount.Phone)) {
+                newAccount.addError('por favor informar o telefone');
+            } else if (newAccount.Phone.length() < 11) {
+                newAccount.addError('por favor informar o telefone com o DDD');
+            }
+        }
+    }
+}

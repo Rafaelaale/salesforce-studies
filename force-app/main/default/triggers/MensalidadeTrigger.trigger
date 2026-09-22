@@ -4,4 +4,3 @@ trigger MensalidadeTrigger on Mensalidade__c (
 ) {
     MensalidadeHandler.validar(Trigger.new);
 }
-

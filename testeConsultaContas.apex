@@ -1,0 +1,1 @@
+ConsultaContas.listarContasPorSetor('Electronics');

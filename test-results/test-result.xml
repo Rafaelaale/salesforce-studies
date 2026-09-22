@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2026-09-14T01:38:05.000Z" hostname="https://orgfarm-c5135da71c-dev-ed.develop.my.salesforce.com" tests="16" failures="5"  errors="0"  time="0.37">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="16"/>
+            <property name="passing" value="11"/>
+            <property name="failing" value="5"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="69%"/>
+            <property name="failRate" value="31%"/>
+            <property name="testStartTime" value="Sun Sep 13 2026 22:38:05"/>
+            <property name="testSetupTimeInMs" value="0"/>
+            <property name="testExecutionTime" value="0.37 s"/>
+            <property name="testTotalTime" value="0.37 s"/>
+            <property name="commandTime" value="0.64 s"/>
+            <property name="hostname" value="https://orgfarm-c5135da71c-dev-ed.develop.my.salesforce.com"/>
+            <property name="orgId" value="00DgL00000Z1811UAB"/>
+            <property name="username" value="rafex113.e0710bf6da71@agentforce.com"/>
+            <property name="testRunId" value="707gL00001IL0aV"/>
+            <property name="userId" value="005gL00000M5bjqQAB"/>
+        </properties>
+        <testcase name="pagamentoTest" classname="PagamentoTest" time="0.01">
+        </testcase>
+        <testcase name="deveAtualizarConta" classname="AccountServiceTest" time="0.06">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, por favor informar o telefone: []"><![CDATA[Class.AccountServiceTest.deveAtualizarConta: line 67, column 1]]></failure>
+        </testcase>
+        <testcase name="deveBuscarContas" classname="AccountServiceTest" time="0.01">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, por favor informar o telefone: []"><![CDATA[Class.AccountServiceTest.deveBuscarContas: line 11, column 1]]></failure>
+        </testcase>
+        <testcase name="deveCriarConta" classname="AccountServiceTest" time="0.12">
+        </testcase>
+        <testcase name="deveExcluirConta" classname="AccountServiceTest" time="0.02">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, por favor informar o telefone: []"><![CDATA[Class.AccountServiceTest.deveExcluirConta: line 102, column 1]]></failure>
+        </testcase>
+        <testcase name="PizzaPortuguesaa" classname="PizzaTest" time="0.03">
+        </testcase>
+        <testcase name="testeMinhaClasse" classname="MinhaClasseTest" time="0.02">
+        </testcase>
+        <testcase name="testarCarro" classname="CarroTest" time="0.03">
+        </testcase>
+        <testcase name="testarCarroComCor" classname="CarroTest" time="0.01">
+        </testcase>
+        <testcase name="devePreencherDataQuandoMensalidadeForPaga" classname="MensalidadeHandlerTest" time="0.11">
+        </testcase>
+        <testcase name="deveRecusarDataDePagamentoQuandoNaoEstiverPago" classname="MensalidadeHandlerTest" time="0.02">
+        </testcase>
+        <testcase name="deveRecusarValorInvalido" classname="MensalidadeHandlerTest" time="0.02">
+        </testcase>
+        <testcase name="testarPagamentoPix" classname="PagamentoPixTest" time="0.03">
+        </testcase>
+        <testcase name="deveBuscarContaPorId" classname="AccountSelectorTest" time="0.10">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, por favor informar o telefone: []"><![CDATA[Class.AccountSelectorTest.deveBuscarContaPorId: line 36, column 1]]></failure>
+        </testcase>
+        <testcase name="deveBuscarContas" classname="AccountSelectorTest" time="0.03">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, por favor informar o telefone: []"><![CDATA[Class.AccountSelectorTest.deveBuscarContas: line 15, column 1]]></failure>
+        </testcase>
+        <testcase name="deveRetornarMensagem" classname="HelloSalesforceTest" time="0.03">
+        </testcase>
+    </testsuite>
+</testsuites>

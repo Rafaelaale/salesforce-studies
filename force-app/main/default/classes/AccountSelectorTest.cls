@@ -5,11 +5,13 @@ private class AccountSelectorTest {
     static void deveBuscarContas() {
 
         Account conta1 = new Account(
-            Name = 'Conta Selector A'
+            Name = 'Conta Selector A',
+            Phone = '71999999999'
         );
 
         Account conta2 = new Account(
-            Name = 'Conta Selector B'
+            Name = 'Conta Selector B',
+            Phone = '71888888888'
         );
 
         insert new List<Account>{ conta1, conta2 };
@@ -30,7 +32,8 @@ private class AccountSelectorTest {
     static void deveBuscarContaPorId() {
 
         Account conta = new Account(
-            Name = 'Conta Selector por ID'
+            Name = 'Conta Selector por ID',
+            Phone = '71777777777'
         );
 
         insert conta;

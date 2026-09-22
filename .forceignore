@@ -1,2 +1,15 @@
 **/jsconfig.json
 **/.eslintrc.json
+force-app/main/default/classes/ContaBancaria.cls
+force-app/main/default/classes/ContaBancaria.cls-meta.xml
+force-app/main/default/classes/extendes.cls
+force-app/main/default/classes/extendes.cls-meta.xml
+force-app/main/default/classes/ola.cls
+force-app/main/default/classes/ola.cls-meta.xml
+force-app/main/default/triggers/testeapex.trigger
+force-app/main/default/triggers/testeapex.trigger-meta.xml
+force-app/main/default/triggers/TIGGERTIGGER.trigger
+force-app/main/default/triggers/TIGGERTIGGER.trigger-meta.xml
+force-app/main/ola.cls
+force-app/main/ola.cls-meta.xml
+force-app/main/default/aiAuthoringBundles/**

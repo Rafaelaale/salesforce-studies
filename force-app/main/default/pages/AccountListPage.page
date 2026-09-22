@@ -1,0 +1,43 @@
+﻿<apex:page id="AccountListPage"
+           sidebar="false"
+           showHeader="false"
+           standardController="Account"
+           recordSetVar="accounts"
+           extensions="AccountListController">
+
+    <style>
+        .pagination { display: flex; gap: 6px; align-items: center; }
+        .page-info { margin: 0 12px; }
+    </style>
+
+    <apex:form>
+    <apex:pageBlock title="Accounts">
+        <apex:pageBlockTable value="{!accounts}" var="account">
+            <apex:column headerValue="Name">
+                <apex:outputLink value="/apex/ViewAccountDetail?id={!account.Id}">
+                    {!account.Name}
+                </apex:outputLink>
+            </apex:column>
+            <apex:column value="{!account.Phone}" headerValue="Phone" />
+            <apex:column value="{!account.Website}" headerValue="Website" />
+            <apex:column value="{!account.Industry}" headerValue="Industry" />
+        </apex:pageBlockTable>
+
+        <apex:pageBlockSection columns="1">
+            <apex:outputPanel layout="block" styleClass="pagination">
+                <apex:commandButton value="First" action="{!first}" disabled="{!isFirstPage}" />
+                <apex:commandButton value="Previous" action="{!previous}" disabled="{!isFirstPage}" />
+                <apex:outputText styleClass="page-info" value="Page {!pageNumber} of {!totalPages}" />
+                <apex:commandButton value="Next" action="{!next}" disabled="{!isLastPage}" />
+                <apex:commandButton value="Last" action="{!last}" disabled="{!isLastPage}" />
+                <apex:selectList value="{!pageSize}" size="1">
+                    <apex:selectOption itemValue="5" itemLabel="5" />
+                    <apex:selectOption itemValue="10" itemLabel="10" />
+                    <apex:selectOption itemValue="20" itemLabel="20" />
+                </apex:selectList>
+            </apex:outputPanel>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

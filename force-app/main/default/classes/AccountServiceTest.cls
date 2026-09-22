@@ -5,7 +5,8 @@ private class AccountServiceTest {
     static void deveBuscarContas() {
 
         Account conta = new Account(
-            Name = 'Conta Teste SOQL'
+            Name = 'Conta Teste SOQL',
+            Phone = '71999999999'
         );
 
         insert conta;
@@ -61,7 +62,8 @@ private class AccountServiceTest {
     static void deveAtualizarConta() {
 
         Account conta = new Account(
-            Name = 'Conta para Atualizar'
+            Name = 'Conta para Atualizar',
+            Phone = '71999999999'
         );
 
         insert conta;
@@ -96,7 +98,8 @@ private class AccountServiceTest {
     static void deveExcluirConta() {
 
         Account conta = new Account(
-            Name = 'Conta para Excluir'
+            Name = 'Conta para Excluir',
+            Phone = '71999999999'
         );
 
         insert conta;
