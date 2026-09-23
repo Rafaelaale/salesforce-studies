@@ -1,0 +1,10 @@
+<apex:page standardController="Account" showHeader="true" sidebar="false">
+    <apex:pageBlock title="Account Information">
+        <apex:pageBlockSection title="Account Details" columns="1">
+            <apex:outputField value="{!Account.Name}" />
+            <apex:outputField value="{!Account.Industry}" />
+            <apex:outputField value="{!Account.Phone}" />
+            <apex:outputField value="{!Account.Website}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
