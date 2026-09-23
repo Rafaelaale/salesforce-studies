@@ -1,33 +1,59 @@
-﻿# 🚀 Salesforce Studies & Projects
+﻿# Salesforce Studies & Projects
 
-Repositório dedicado aos meus estudos práticos e projetos de desenvolvimento na plataforma Salesforce, seguindo as melhores práticas de mercado.
+Repositório público dos estudos e projetos práticos de Rafael Alexandre Oliveira
+Araújo na plataforma Salesforce.
 
-## 🛠️ Tecnologias e Competências
-- **Backend:** Apex (Classes, Triggers, Handlers, SOQL/SOSL, DML, Processos Assíncronos)
-- **Frontend:** Lightning Web Components (LWC), HTML5, CSS3, JavaScript
-- **DevOps:** Git, GitHub, Salesforce CLI (SFDX), Visual Studio Code
-- **Boas Práticas:** Testes Unitários, Tratamento de Exceções (Try/Catch), Governor Limits
+## Projetos
 
-## 📂 Estrutura do Repositório
--  pex-exercises/: Exercícios práticos de lógica e manipulação de dados em Apex.
-- lwc-projects/: Componentes Lightning Web Components desenvolvidos do zero.
+### Gestão de Academia
 
-## 🎯 Objetivo
-Consolidar conhecimentos para atuar como Desenvolvedor(a) Salesforce, entregando código limpo, escalável e seguro.
+Aplicação para cadastro de alunos, controle de mensalidades e acompanhamento de
+presença.
 
----
-*Desenvolvido por Rafael Alexandre Oliveira Araujo*
-## 📘 Estudos de Desenvolvimento Salesforce
+- Objetos customizados: `Aluno__c`, `Mensalidade__c` e `Presenca__c`.
+- Apex: `MensalidadeService` e `PresencaService`.
+- LWC: painel de presença e mensalidades atrasadas.
+- Permission Set: `AcademiaUser`.
+- Testes Apex e Jest executados com sucesso.
 
-### ✅ Conteúdo aprendido:
-- Tipos de dados
-- List, Set e Map
-- Estruturas de repetição (for, while)
+### Exercício de Passagens
 
-### 💻 Tecnologias:
-- Apex
-- Salesforce
-- Git / GitHub
+Exercício com Aura/Apex para busca de aeroportos, consulta de voos e criação de
+tickets.
 
----
+- `TicketsController`.
+- Objetos: `Estado__c`, `Aeroporto__c`, `Voo__c` e `Ticket__c`.
+- Consultas com `WITH USER_MODE`.
+
+## Conteúdos Estudados
+
+- Apex, SOQL, DML, classes e testes unitários.
+- Aura Components, Controller, Helper, Events e `AuraEnabled`.
+- Lightning Web Components, JavaScript, HTML e CSS.
+- Objetos, campos, relacionamentos e Permission Sets.
+- CRUD, FLS, Sharing e boas práticas de segurança.
+- Salesforce CLI, deploy orientado a fonte, Git e GitHub.
+
+> Este repositório contém uma classe Apex chamada `SaudacaoFlow`, mas ainda não
+> possui um recurso Salesforce Flow (`*.flow-meta.xml`).
+
+## Validação
+
+```powershell
+npm install
+npm run lint
+npm test
+sf apex run test --target-org academia --tests MensalidadeServiceTest --tests PresencaServiceTest --wait 10
+```
+
+## Objetivo
+
+Consolidar conhecimentos para atuar como Desenvolvedor Salesforce, construindo
+soluções organizadas, seguras, testáveis e orientadas a problemas reais.
+
+## Contato
+
+- Rafael Alexandre Oliveira Araújo
+- LinkedIn: https://www.linkedin.com/in/rafael-araujo-aa10a423/
+- Email: Rafex113@gmail.com
 
