@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_r__c</fullName><label>Estado</label><type>Lookup</type><referenceTo>Estado__c</referenceTo><relationshipName>Estado</relationshipName><relationshipLabel>Estado</relationshipLabel>
+</CustomField>

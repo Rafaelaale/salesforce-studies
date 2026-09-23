@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Voo_Volta__c</fullName><label>Voo de Volta</label><type>Lookup</type><referenceTo>Voo__c</referenceTo><relationshipName>Tickets_Volta</relationshipName><relationshipLabel>Tickets de Volta</relationshipLabel>
+</CustomField>

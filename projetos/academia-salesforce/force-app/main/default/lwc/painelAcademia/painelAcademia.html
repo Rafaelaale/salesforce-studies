@@ -1,0 +1,65 @@
+<template>
+    <lightning-card title="Histórico de presença" icon-name="standard:people">
+        <div class="panel-body">
+            <lightning-record-picker
+                label="Aluno"
+                placeholder="Pesquise um aluno"
+                object-api-name="Aluno__c"
+                onchange={handleAlunoChange}>
+            </lightning-record-picker>
+
+            <div class="date-grid">
+                <lightning-input
+                    type="date"
+                    label="Data inicial"
+                    value={inicio}
+                    onchange={handleInicioChange}>
+                </lightning-input>
+                <lightning-input
+                    type="date"
+                    label="Data final"
+                    value={fim}
+                    onchange={handleFimChange}>
+                </lightning-input>
+            </div>
+
+            <lightning-button
+                variant="brand"
+                label="Consultar histórico"
+                onclick={handleBuscar}
+                disabled={isLoading}>
+            </lightning-button>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Consultando histórico"></lightning-spinner>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="error-message" role="alert">{errorMessage}</div>
+            </template>
+
+            <template if:true={hasRecords}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={records}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+
+            <template if:true={hasOverdueRecords}>
+                <h2 class="section-title">Mensalidades atrasadas</h2>
+                <lightning-datatable
+                    key-field="Id"
+                    data={overdueRecords}
+                    columns={overdueColumns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+
+            <template if:true={showEmptyMessage}>
+                <p class="empty-message">Nenhuma presença encontrada para o período.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

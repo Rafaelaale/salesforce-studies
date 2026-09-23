@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <label>Ticket</label>
+    <nameField><label>Numero do Ticket</label><type>AutoNumber</type><displayFormat>T-{00000}</displayFormat><startingNumber>1</startingNumber></nameField>
+    <pluralLabel>Tickets</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

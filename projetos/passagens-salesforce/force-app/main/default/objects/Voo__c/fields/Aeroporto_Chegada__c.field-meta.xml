@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aeroporto_Chegada__c</fullName><label>Aeroporto de Chegada</label><type>Lookup</type><referenceTo>Aeroporto__c</referenceTo><relationshipName>Aeroporto_Chegada</relationshipName><relationshipLabel>Aeroporto de Chegada</relationshipLabel>
+</CustomField>
