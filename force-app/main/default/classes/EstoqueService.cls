@@ -1,5 +1,27 @@
 public class EstoqueService {
 
+    public static void aumentarEstoque(List<Entrada__c> novasEntradas) {
+        Map<Id, Decimal> produtosParaAtualizar = new Map<Id, Decimal>();
+
+        for (Entrada__c entrada : novasEntradas) {
+            if (entrada.Produto__c != null && entrada.Quantidade__c != null) {
+                produtosParaAtualizar.put(entrada.Produto__c,
+                                          (produtosParaAtualizar.containsKey(entrada.Produto__c) ?
+                                           produtosParaAtualizar.get(entrada.Produto__c) : 0) + entrada.Quantidade__c);
+            }
+        }
+
+        if (!produtosParaAtualizar.isEmpty()) {
+            List<Produto__c> produtos = [SELECT Id, Quantidade_Em_Estoque__c FROM Produto__c WHERE Id IN :produtosParaAtualizar.keySet()];
+
+            for (Produto__c produto : produtos) {
+                produto.Quantidade_Em_Estoque__c += produtosParaAtualizar.get(produto.Id);
+            }
+
+            update produtos;
+        }
+    }
+
     // Método para diminuir a quantidade de estoque de produtos
     // Recebe uma lista de registros de Saida__c
     public static void diminuirEstoque(List<Saida__c> novasSaidas) {
