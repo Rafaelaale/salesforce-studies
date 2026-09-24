@@ -18,6 +18,14 @@
     </types>
     <types>
         <members>*</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PermissionSet</name>
     </types>
     <version>60.0</version>

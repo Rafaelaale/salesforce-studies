@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <interviewLabel>Estoque Baixo - Criar Pedido de Reposição {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Estoque Baixo - Criar Pedido de Reposição</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Criar_Pedido_Reposicao</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ProdutoId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <recordCreates>
+        <name>Criar_Pedido_Reposicao</name>
+        <label>Criar Pedido de Reposição</label>
+        <locationX>176</locationX>
+        <locationY>120</locationY>
+        <inputAssignments>
+            <field>Produto__c</field>
+            <value>
+                <elementReference>ProdutoId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Pendente</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Pedido_Reposicao__c</object>
+    </recordCreates>
+</Flow>
