@@ -1,5 +1,5 @@
 <apex:page controller="CalculatorPageController" title="Calculator">
-    <apex:form>
+    <apex:form >
         <apex:pageBlock title="Calculator">
             <apex:pageMessages />
             <apex:pageBlockSection columns="1">

@@ -10,4 +10,3 @@ public with sharing class ValidadorAluno {
     public class ValidadorAlunoException extends Exception {
     }
 }
-

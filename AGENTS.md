@@ -21,9 +21,14 @@
 
 - Verifique o org autenticado antes de publicar: `sf org list`.
 - Deploy focado: `sf project deploy start --target-org <alias> --source-dir force-app/main/default/<caminho> --wait 30`.
-- Deploy do pacote: `sf project deploy start --target-org <alias> --source-dir force-app/main/default --wait 30`.
-- Deploy via manifest (equivalente ao deploy do pacote): `sf project deploy start --target-org <alias> --manifest manifest/package.xml --wait 30`. Ao adicionar um novo tipo de metadado em `force-app/main/default`, atualize `manifest/package.xml` com o `<types>` correspondente.
-- Para uma mudanca Apex, execute os testes relacionados com `sf apex run test --target-org <alias> --tests <ClasseTest> --result-format human --wait 30` ou inclua `--test-level RunSpecifiedTests` no deploy.
+- Para um componente especifico, use `--metadata <Tipo>:<Nome>` (por exemplo, `--metadata ApexClass:NomeDaClasse`). Para um diretorio Salesforce DX, use `--source-dir <caminho>`. Esses seletores sao alternativas; nunca combine `--metadata`, `--source-dir` ou `--metadata-dir` no mesmo comando.
+- Neste repositorio, prefira deploy focado ou via `manifest/package.xml`. Nunca use `force-app/main/default` inteiro como `--source-dir`: junto dos metadados ha scripts Python, CSV e modelos de dados. A pasta `flows` pode ser enviada como `--source-dir` porque `.forceignore` exclui scripts Python, CSV, modelos e `openapi_spec.json`; ainda prefira o manifest quando precisar de dependencias Apex ou objetos.
+- Deploy via manifest: `sf project deploy start --target-org <alias> --manifest manifest/package.xml --wait 30`. O manifest deve listar somente componentes Salesforce que se deseja publicar; atualize-o ao adicionar componentes.
+- Para org de estudo/sandbox, use `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/validate-salesforce-deploy.ps1 -TargetOrg <alias> -Deploy`. O manifest usa wildcards para os tipos Salesforce mapeados; novos componentes desses tipos entram automaticamente. O preflight bloqueia pastas de metadados sem mapeamento, testa a API de previsao, e o wrapper roda `RunLocalTests`, faz dry-run e so publica apos a confirmacao literal `DEPLOY`. Sem `-Deploy`, ele apenas valida.
+- Se a checagem local isolada for necessaria, rode `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/validate-salesforce-metadata.ps1`.
+- Antes de publicar, confirme os nomes e extensoes de metadados (por exemplo, classe `.cls` com `.cls-meta.xml`, Flow `.flow-meta.xml`), que cada referencia do Flow aponta para uma classe/metodo Apex existente e que os parametros e tipos de entrada/saida correspondem. XML bem-formado sozinho nao garante compatibilidade Salesforce.
+- Em producao, use `sf project deploy validate --manifest manifest/package.xml --target-org <alias> --wait 30` e, se passar, `sf project deploy quick --job-id <id> --target-org <alias>`. Para sandbox/org de estudo, siga o wrapper de deploy acima.
+- O wrapper de deploy executa `RunLocalTests`, cobrindo as classes de teste locais atuais e futuras; para uma mudanca Apex isolada, tambem e possivel executar `sf apex run test --target-org <alias> --tests <ClasseTest> --result-format human --wait 30`.
 - Nao considere `sf project deploy preview` ou diff como publicacao; confirme `Status: Succeeded` no deploy.
 - Se o CLI reclamar de arquivo ausente, confirme que o `.cls` e o `.cls-meta.xml` existem lado a lado no caminho informado.
 - Evite incluir arquivos de exercicio fora de `force-app/main/default` em deploys de pacote sem verificar se sao metadados validos.

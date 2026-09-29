@@ -5,6 +5,7 @@
         <field>Mensalidade__c.Aluno__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
     <label>Acesso Alunos Academia</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>

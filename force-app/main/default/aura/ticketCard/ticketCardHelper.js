@@ -1,0 +1,3 @@
+({
+    // Lógica auxiliar, se necessário
+})

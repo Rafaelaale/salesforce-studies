@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Voo_Volta__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Voo de Volta</label>
+    <referenceTo>Voo__c</referenceTo>
+    <relationshipLabel>Tickets (Voo de Volta)</relationshipLabel>
+    <relationshipName>Tickets_Voo_Volta</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

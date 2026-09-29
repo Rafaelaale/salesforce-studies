@@ -1,0 +1,72 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="TicketController">
+    <aura:attribute name="voos" type="Object" default="[]" />
+    <aura:attribute name="moeda" type="String" />
+    <aura:attribute name="modo24h" type="Boolean" default="false" />
+
+    <aura:attribute name="aeroportoOrigemId" type="String" />
+    <aura:attribute name="aeroportoDestinoId" type="String" />
+    <aura:attribute name="dataPartida" type="String" />
+    <aura:attribute name="dataRetorno" type="String" />
+    <aura:attribute name="minDate" type="String" />
+    <aura:attribute name="hasResult" type="Boolean" default="false" />
+
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="ticketEvent" event="c:ticketEventClick" action="{!c.handlerEventClick}" />
+    <ltng:require scripts="{!$Resource.formatter}" afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+
+    <div>
+        <aura:if isTrue="{!v.recordId}">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning:select label="Selecione a moeda desejada" required="true" value="{!v.moeda}">
+                        <option value="BRL">Real R$</option>
+                        <option value="USD">Dólar $</option>
+                        <option value="EUR">Euro €</option>
+                    </lightning:select>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning:input label="Aeroporto de Origem (ID)"
+                        value="{!v.aeroportoOrigemId}"
+                        placeholder="Digite o ID do aeroporto de origem" />
+                </div>
+                <div class="slds-col">
+                    <lightning:input label="Aeroporto de Destino (ID)"
+                        value="{!v.aeroportoDestinoId}"
+                        placeholder="Digite o ID do aeroporto de destino" />
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning:input type="date" label="Data de Partida" value="{!v.dataPartida}"
+                        min="{!v.minDate}" />
+                </div>
+                <div class="slds-col">
+                    <lightning:input type="date" label="Data de Retorno" value="{!v.dataRetorno}"
+                        min="{!v.minDate}" />
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning:button variant="brand" label="Buscar Voos" onclick="{!c.handleClick}" />
+                </div>
+            </div>
+
+            <aura:if isTrue="{!v.hasResult}">
+                <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                    <aura:iteration items="{!v.voos}" var="voo">
+                        <div class="slds-col slds-size_1-of-3 slds-small-size_1-of-1 slds-medium-size_1-of-2">
+                            <c:ticketCard voo="{!voo}" moeda="{!v.moeda}" modo24h="{!v.modo24h}" />
+                        </div>
+                    </aura:iteration>
+                </div>
+            </aura:if>
+        </aura:if>
+    </div>
+</aura:component>

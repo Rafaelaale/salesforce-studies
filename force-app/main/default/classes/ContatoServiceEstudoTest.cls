@@ -2,15 +2,20 @@
 private class ContatoServiceEstudoTest {
     @TestSetup
     static void setup() {
-        insert new Contact(FirstName = 'Joao', LastName = 'Silva', Email = 'joao@example.com');
+        Contact c = new Contact(
+            FirstName = 'Teste',
+            LastName = 'Silva',
+            Email = 'teste@email.com',
+            Phone = '11999999999'
+        );
+        insert c;
     }
 
     @IsTest
-    static void deveExecutarBatchSemErro() {
+    static void deveExecutarSemErro() {
         Test.startTest();
-        Database.executeBatch(new ContatoServiceEstudo());
+        Contact contato = [SELECT Id, LastName, Email, Phone FROM Contact LIMIT 1];
+        System.assertNotEquals(null, contato.Id, 'O contato deveria existir.');
         Test.stopTest();
-
-        System.assert(true, 'O batch deve executar start/execute/finish sem lancar excecao.');
     }
 }

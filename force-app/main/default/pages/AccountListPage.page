@@ -10,7 +10,7 @@
         .page-info { margin: 0 12px; }
     </style>
 
-    <apex:form>
+    <apex:form >
     <apex:pageBlock title="Accounts">
         <apex:pageBlockTable value="{!accounts}" var="account">
             <apex:column headerValue="Name">

@@ -1,0 +1,31 @@
+public class ViaCEPService {
+@InvocableMethod(label='Consultar CEP ViaCEP' description='Consulta informações de CEP usando a API do ViaCEP.')
+public static List&lt;ViaCEPResponse&gt; consultarCEP(List&lt;String&gt; ceps) {
+    List&lt;ViaCEPResponse&gt; results = new List&lt;ViaCEPResponse&gt;();
+    Http http = new Http();
+    HttpRequest request = new HttpRequest();
+
+    for (String cep : ceps) {
+        String endpoint = 'https://viacep.com.br/ws/' + cep.replaceAll('[^0-9]', '') + '/json/';
+        request.setEndpoint(endpoint);
+        request.setMethod('GET');
+        request.setTimeout(120000); // 120 segundos
+
+        try {
+            HttpResponse response = http.send(request);
+            if (response.getStatusCode() == 200) {
+                ViaCEPResponse cepResponse = (ViaCEPResponse)JSON.deserialize(response.getBody(), ViaCEPResponse.class);
+                results.add(cepResponse);
+            } else {
+                // Tratar erro da API, talvez adicionar um ViaCEPResponse com status de erro
+                System.debug('Erro na consulta ViaCEP para o CEP ' + cep + ': ' + response.getStatusCode() + ' - ' + response.getStatus());
+                results.add(new ViaCEPResponse('Erro: ' + response.getStatus()));
+            }
+        } catch (Exception e) {
+            System.debug('Exceção na consulta ViaCEP para o CEP ' + cep + ': ' + e.getMessage());
+            results.add(new ViaCEPResponse('Exceção: ' + e.getMessage()));
+        }
+    }
+    return results;
+}
+}

@@ -1,0 +1,101 @@
+<aura:component
+    implements="flexipage:availableForAllPageTypes"
+    access="global">
+
+    <!-- Dados do voo de ida -->
+    <aura:attribute name="companhiaOrigem" type="String" default="GOL"/>
+    <aura:attribute name="horaSaidaOrigem" type="String" default="07:00"/>
+    <aura:attribute name="siglaAeroportoOrigem" type="String" default="CGH"/>
+    <aura:attribute name="horaChegadaDestino" type="String" default="08:10"/>
+    <aura:attribute name="siglaAeroportoDestino" type="String" default="SDU"/>
+    <aura:attribute name="vooOrigemChegaOutroDia" type="Boolean" default="false"/>
+
+    <!-- Dados do voo de volta -->
+    <aura:attribute name="companhiaDestino" type="String" default="LATAM"/>
+    <aura:attribute name="horaSaidaDestino" type="String" default="10:00"/>
+    <aura:attribute name="siglaAeroportoDestinoVolta" type="String" default="SDU"/>
+    <aura:attribute name="horaChegadaOrigem" type="String" default="11:10"/>
+    <aura:attribute name="siglaAeroportoOrigemVolta" type="String" default="CGH"/>
+    <aura:attribute name="vooDestinoChegaOutroDia" type="Boolean" default="false"/>
+
+    <!-- Preço -->
+    <aura:attribute name="valor" type="Decimal" default="20"/>
+    <aura:attribute name="moeda" type="String" default="USD"/>
+
+    <div class="ticket-container">
+        <lightning:card title="Resumo da passagem">
+            <div class="slds-p-around_medium">
+
+                <!-- Voo de ida -->
+                <section class="flight-section" aria-label="Voo de ida">
+                    <div class="airline">
+                        <span class="section-label">IDA</span>
+                        <strong>{!v.companhiaOrigem}</strong>
+                    </div>
+
+                    <div class="flight-route">
+                        <div class="flight-point">
+                            <strong class="flight-time">{!v.horaSaidaOrigem}</strong>
+                            <span class="airport-code">{!v.siglaAeroportoOrigem}</span>
+                        </div>
+
+                        <div class="route-line" aria-hidden="true">
+                            <span>✈</span>
+                        </div>
+
+                        <div class="flight-point">
+                            <strong class="flight-time">{!v.horaChegadaDestino}</strong>
+                            <span class="airport-code">{!v.siglaAeroportoDestino}</span>
+
+                            <aura:if isTrue="{!v.vooOrigemChegaOutroDia}">
+                                <span class="day-label">Chega no dia seguinte</span>
+                            </aura:if>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="flight-divider"></div>
+
+                <!-- Voo de volta -->
+                <section class="flight-section" aria-label="Voo de volta">
+                    <div class="airline">
+                        <span class="section-label">VOLTA</span>
+                        <strong>{!v.companhiaDestino}</strong>
+                    </div>
+
+                    <div class="flight-route">
+                        <div class="flight-point">
+                            <strong class="flight-time">{!v.horaSaidaDestino}</strong>
+                            <span class="airport-code">{!v.siglaAeroportoDestinoVolta}</span>
+                        </div>
+
+                        <div class="route-line" aria-hidden="true">
+                            <span>✈</span>
+                        </div>
+
+                        <div class="flight-point">
+                            <strong class="flight-time">{!v.horaChegadaOrigem}</strong>
+                            <span class="airport-code">{!v.siglaAeroportoOrigemVolta}</span>
+
+                            <aura:if isTrue="{!v.vooDestinoChegaOutroDia}">
+                                <span class="day-label">Chega no dia seguinte</span>
+                            </aura:if>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="price-section">
+                    <span>Preço informado</span>
+                    <strong>
+                        <lightning:formattedNumber
+                            value="{!v.valor}"
+                            style="currency"
+                            currencyCode="{!v.moeda}"
+                            maximumFractionDigits="2"/>
+                    </strong>
+                </div>
+
+            </div>
+        </lightning:card>
+    </div>
+</aura:component>

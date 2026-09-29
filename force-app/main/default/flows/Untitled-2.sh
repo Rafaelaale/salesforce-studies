@@ -1,0 +1,1 @@
+sf project deploy start --target-org <alias> --metadata ApexClass:PrevisaoDemandaInvocable --wait 30

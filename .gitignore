@@ -1,4 +1,10 @@
-﻿.sfdx/
+.sfdx/
 .sf/
+.localdevserver/
 .vscode/
 node_modules/
+*.log
+*.tmp
+*rascunho*
+apex-scripts/
+.forceignore.bak

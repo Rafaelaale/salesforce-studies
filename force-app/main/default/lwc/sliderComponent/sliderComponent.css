@@ -1,0 +1,44 @@
+.slider-card {
+    max-width: 28rem;
+    padding: 1rem;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    background: #ffffff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.slider-label {
+    color: #181818;
+    font-weight: 600;
+}
+
+.value-pill {
+    min-width: 2.5rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: #eef4ff;
+    color: #0176d3;
+    font-weight: 700;
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+    accent-color: #0176d3;
+    cursor: pointer;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.35rem;
+    color: #706e6b;
+    font-size: 0.75rem;
+}

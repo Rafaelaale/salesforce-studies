@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Evento para selecionar um ticket de voo">
+    <aura:attribute name="idVooIda" type="Id" />
+    <aura:attribute name="idVooVolta" type="Id" />
+</aura:event>

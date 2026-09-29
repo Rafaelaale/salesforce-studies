@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <actionCalls>
+        <name>Consultar_CEP_Apex</name>
+        <label>Consultar CEP ViaCEP</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <actionName>ViaCEPFlowAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Exibir_Resultado</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Erro_Consulta_CEP</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>ceps</name>
+            <value>
+                <elementReference>CEP_Digitado</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <name>output</name>
+            <assignToReference>Resultado_CEP</assignToReference>
+        </outputParameters>
+    </actionCalls>
+    <environments>Default</environments>
+    <interviewLabel>Consultar CEP ViaCEP {!$Flow.CurrentDateTime}</interviewLabel>
+        <label>Consultar CEP ViaCEP</label>
+        <processMetadataValues>
+            <name>BuilderType</name>
+            <value>
+                <stringValue>LightningFlowBuilder</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>CanvasMode</name>
+            <value>
+                <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>OriginBuilderType</name>
+            <value>
+                <stringValue>LightningFlowBuilder</stringValue>
+            </value>
+        </processMetadataValues>
+        <processType>Flow</processType>
+        <screens>
+            <name>Entrada_CEP</name>
+            <label>Entrada de CEP</label>
+            <locationX>176</locationX>
+            <locationY>134</locationY>
+            <allowBack>false</allowBack>
+            <allowFinish>true</allowFinish>
+            <allowPause>false</allowPause>
+            <connector>
+                <targetReference>Consultar_CEP_Apex</targetReference>
+            </connector>
+            <fields>
+                <name>CEP_Digitado</name>
+                <dataType>String</dataType>
+                <fieldText>Digite o CEP:</fieldText>
+                <fieldType>InputField</fieldType>
+                <isRequired>true</isRequired>
+            </fields>
+            <showFooter>true</showFooter>
+            <showHeader>true</showHeader>
+        </screens>
+        <screens>
+            <name>Exibir_Resultado</name>
+            <label>Resultado da Consulta</label>
+            <locationX>176</locationX>
+            <locationY>350</locationY>
+            <allowBack>true</allowBack>
+            <allowFinish>true</allowFinish>
+            <allowPause>false</allowPause>
+            <fields>
+                <name>Display_CEP</name>
+                <fieldText>CEP: {!Resultado_CEP.cep}
+Logradouro: {!Resultado_CEP.logradouro}
+Bairro: {!Resultado_CEP.bairro}
+Cidade: {!Resultado_CEP.localidade}
+UF: {!Resultado_CEP.uf}</fieldText>
+                <fieldType>DisplayText</fieldType>
+            </fields>
+            <showFooter>true</showFooter>
+            <showHeader>true</showHeader>
+        </screens>
+        <screens>
+            <name>Erro_Consulta_CEP</name>
+            <label>Erro na Consulta</label>
+            <locationX>440</locationX>
+            <locationY>350</locationY>
+            <allowBack>true</allowBack>
+            <allowFinish>true</allowFinish>
+            <allowPause>false</allowPause>
+            <fields>
+                <name>Mensagem_Erro</name>
+                <fieldText>Ocorreu um erro ao consultar o CEP.
+Por favor, verifique o CEP digitado e tente novamente.
+Detalhes do erro: {!$Flow.FaultMessage}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Entrada_CEP</targetReference>
+        </connector>
+    </start>
+    <variables>
+        <name>Resultado_CEP</name>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <apexClass>ViaCEPResponse</apexClass>
+    </variables>
+</Flow>  

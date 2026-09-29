@@ -1,5 +1,10 @@
 **/jsconfig.json
 **/.eslintrc.json
+**/.sf/**
+**/.sfdx/**
+force-app/main/default/classes/AccountStandardController.cls
+force-app/main/default/Collections.cls
+force-app/main/default/MovimentacaoEstoque.flow-meta.xml
 force-app/main/default/classes/ContaBancaria.cls
 force-app/main/default/classes/ContaBancaria.cls-meta.xml
 force-app/main/default/classes/extendes.cls
@@ -13,3 +18,10 @@ force-app/main/default/triggers/TIGGERTIGGER.trigger-meta.xml
 force-app/main/ola.cls
 force-app/main/ola.cls-meta.xml
 force-app/main/default/aiAuthoringBundles/**
+force-app/main/default/flows/*.py
+force-app/main/default/flows/*.csv
+force-app/main/default/flows/*.pkl
+force-app/main/default/flows/openapi_spec.json
+force-app/main/default/flows/ViaCEPService.cls..xml
+force-app/main/default/triggers/PagamentoTrigger.trigger
+force-app/main/default/triggers/PagamentoTrigger.trigger-meta.xml

@@ -2,7 +2,7 @@
 private class MvcAccountViewControllerTest {
     @IsTest
     static void deveCarregarContaNaExtensao() {
-        Account conta = new Account(Name = 'Conta MVC');
+        Account conta = new Account(Name = 'Conta MVC', Phone = '11999999999');
         insert conta;
 
         ApexPages.StandardController standardController =

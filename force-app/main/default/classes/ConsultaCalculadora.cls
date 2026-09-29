@@ -4,5 +4,4 @@ public with sharing class ConsultaCalculadora {
     public static Decimal calcularValorTotal(Decimal valorBase, Integer duracaoMinutos) { 
         return ConsultaService.calcularValorTotal(valorBase, duracaoMinutos); 
     } 
-} 
- 
+}

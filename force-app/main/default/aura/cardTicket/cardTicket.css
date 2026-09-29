@@ -1,0 +1,26 @@
+.THIS .ticket-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.THIS .flight-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+}
+
+.THIS .airline {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 90px;
+    color: #181818;
+}
+
+.THIS .section-label {
+    color: #706e6b;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}

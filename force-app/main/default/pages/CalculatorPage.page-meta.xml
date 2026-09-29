@@ -4,4 +4,14 @@
     <availableInTouch>true</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <label>CalculatorPage</label>
+    <packageVersions>
+        <majorNumber>3</majorNumber>
+        <minorNumber>32</minorNumber>
+        <namespace>cdpactvstrgptnr</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>132</minorNumber>
+        <namespace>ssot</namespace>
+    </packageVersions>
 </ApexPage>
