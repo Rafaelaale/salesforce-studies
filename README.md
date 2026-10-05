@@ -1,4 +1,4 @@
-﻿# 🚀 Salesforce Studies & Projects
+# 🚀 Salesforce Studies & Projects
 
 Repositório dedicado aos meus estudos práticos e projetos de desenvolvimento na plataforma Salesforce, seguindo as melhores práticas de mercado.
 
