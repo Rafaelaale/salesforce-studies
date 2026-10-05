@@ -35,7 +35,8 @@ private class ContatoTriggerTest {
         Contact contato = new Contact(
             FirstName = 'Ana',
             LastName = 'Souza',
-            Email = 'ana@email.com'
+            Email = 'ana@email.com',
+            Phone = '11999999999'
         );
 
         Test.startTest();

@@ -1,0 +1,1 @@
+Contact c = new Contact(FirstName='Teste', LastName='API' + DateTime.now().getTime(), Email='teste' + DateTime.now().getTime() + '@api.com', Phone='11999999999'); Database.DMLOptions dml = new Database.DMLOptions(); dml.DuplicateRuleHeader.allowSave = true; Database.insert(c, dml);
